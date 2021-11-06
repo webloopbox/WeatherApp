@@ -1,0 +1,31 @@
+.leftbar {
+  // border: 2px solid white;
+  display: flex;
+  justify-content: left;
+  align-items: left;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 100px 0 0 50px;
+  transition: visibility 0.2s, opacity 0.2s;
+}
+.weather-condition,
+.city {
+  font-weight: 400;
+}
+.icon {
+  width: 120px;
+  margin-left: -15px;
+}
+.leftbar h2 {
+  font-size: 36px;
+  margin: -25px 0 0 0;
+}
+.leftbar h4 {
+  margin: 0;
+  font-size: 20px;
+}
+.leftbar h3 {
+  margin-top: 15px;
+  font-size: 65px;
+  color: yellow;
+}

@@ -1,0 +1,21 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  box-sizing: border-box;
+  background-image: url("./defaultImg.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+  font-family: "Roboto", sans-serif;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+@import "./appStyle.scss";
+@import "./introScreen/introStyle.scss";
+@import "./leftBar/leftBarStyle.scss";
+@import "./search/searchStyle.scss";
+@import "./rightBar/rightBarStyle.scss";
+@import "./temperatureCards/temperatureCard.scss";
