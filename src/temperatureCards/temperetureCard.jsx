@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { useGlobalContext } from '../context'
-import Zoom from 'react-reveal/Zoom';
+// import Zoom from 'react-reveal/Zoom';
 
 
 const TemperatureCard = () => {
@@ -38,13 +38,12 @@ const TemperatureCard = () => {
         {forecast_data.map((item,index)=> {
             const {hour,temperature,feel} = item
 
-            return <Zoom delay={1000} key={index}>
-                        <article className="forecast-item" key={index}>
+            return <article className="forecast-item" key={index}>
                             <p className="hour">{hour}</p>
                             <h1>{temperature}</h1>
                             <p>Odczuwalne {feel}</p>
                         </article>
-                    </Zoom>
+                    
             
         })}
         <div className="horizontal-nav">

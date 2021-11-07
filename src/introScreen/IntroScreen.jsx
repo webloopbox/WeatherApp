@@ -8,20 +8,23 @@ const IntroScreen = ({children}) => {
     const {city} = current_city_data
 
     useEffect(() => {
+
+        const body = document.getElementsByTagName("body")[0]
+        body.style.overflowY = 'hidden'
+        
         if(city) {
 
-           const app = document.getElementById("app")
-           
-           app.style.gridTemplateColumns = "400px 1fr 400px"
-           
            setForm(false)
            setLoading(true)
 
            setTimeout(() => {
+            
             setIntroInvisibility(true)
             // STOP LOADING
             setLoading(false)
             setReady(true)
+
+            body.style.overflowY = 'auto'
            },1500)
            
         }

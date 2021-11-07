@@ -1,12 +1,14 @@
 .rightbar {
-  grid-column: 3/4;
+  grid-column: 1/2;
   font-size: 25px;
   // border: 2px solid white;
   width: 80%;
+  max-width: 480px; // '''''''''
   display: flex;
   flex-direction: column;
   justify-content: start;
   transition: visibility 0.2s, opacity 0.2s;
+  margin: 0 auto;
 }
 h6 {
   margin: 0;
@@ -55,6 +57,7 @@ p {
 }
 .right-bar-icon img {
   width: 90%;
+  margin-top: 12px;
 }
 .right-bar-item h6 {
   display: flex;

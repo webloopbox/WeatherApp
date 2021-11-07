@@ -11,7 +11,7 @@ const Search = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        const url = `https://api.openweathermap.org/data/2.5/forecast?cnt=20&q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
+        const url = `https://api.openweathermap.org/data/2.5/forecast?cnt=10&q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         const getData = async () => {
             if(city) {
 
@@ -51,7 +51,33 @@ const Search = () => {
                         const wind_speed = Math.floor(weatherData.list[0].wind.speed * 18/5) + " km/h"
 
                         // WEATHER CONDITION
-                        const weather_condition = weatherData.list[0].weather[0].main
+                        let weather_condition = weatherData.list[0].weather[0].main
+                        
+                        switch (weather_condition) {
+                            case 'Clouds':
+                                weather_condition = "Pochmurnie"
+                              break;
+                            case 'Drizzle':
+                                weather_condition = "Mżawka"
+                              break;
+                            case 'Thunderstorm':
+                                weather_condition = "Burza z piorunami"
+                              break;
+                            case 'Rain':
+                                weather_condition = "Deszcz"
+                              break;
+                            case 'Snow':
+                                weather_condition = "Śnieg"
+                              break;
+                            case 'Mist':
+                                weather_condition = "Mgła"
+                              break;
+                            case 'Clear':
+                                weather_condition = "Bezchmurnie"
+                            default:
+                              console.log(`EN`)
+                          }
+                          
 
                         // RAIN
                         const rain_checked = weatherData.list[0].rain && weatherData.list[0].rain['3h']
@@ -62,7 +88,7 @@ const Search = () => {
 
                         // FORECAST CARDS
                         const forecast = []
-                        for(let i=1;i<=7;i++) {
+                        for(let i=1;i<10;i++) {
                             let time = weatherData.list[i].dt_txt;
                             let hour = time.substring(11,time.length-3)
                             // console.log(hour);
@@ -103,17 +129,17 @@ const Search = () => {
                     console.log(err);
                 }
 
-                //  // SET IMAGE
-                //  const image_response = await fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=${process.env.REACT_APP_IMAGES_API_KEY}`)
-                //  const image = await image_response.json()
-                // //  console.log(image);
-                //  const place_image = image.results[0] && image.results[0].urls.regular;
+                 // SET IMAGE
+                 const image_response = await fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=${process.env.REACT_APP_IMAGES_API_KEY}`)
+                 const image = await image_response.json()
+                //  console.log(image);
+                 const place_image = image.results[0] && image.results[0].urls.regular;
 
-                //  if(place_image) {
-                //     setBackground(place_image)
-                //  } else {
-                //     setBackground("https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80")
-                //  }
+                 if(place_image) {
+                    setBackground(place_image)
+                 } else {
+                    setBackground("https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80")
+                 }
 
                  
 
@@ -122,9 +148,9 @@ const Search = () => {
         getData()
     }
 
-    // useEffect(() => {
-    //     document.body.style.backgroundImage = `url(${background})`
-    // },[background])
+    useEffect(() => {
+        document.body.style.backgroundImage = `url(${background})`
+    },[background])
 
     return <div className='search-wrapper'>
         <div className={`search-bg ${active_form ? 'intro-open' : ''}`}>

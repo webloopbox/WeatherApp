@@ -4,7 +4,7 @@
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  grid-column: 2/3;
+  grid-column: 1/2;
 }
 input:focus,
 button {
@@ -63,10 +63,10 @@ button:hover {
 }
 
 .search-bg.intro-open {
-  margin-top: 300px;
+  margin-top: 150px;
 }
 .search-bg.intro-open > form.search-form {
-  width: 500px;
+  width: 300px;
 }
 .error-message {
   position: relative;

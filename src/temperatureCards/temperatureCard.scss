@@ -11,6 +11,8 @@
   overflow-x: scroll;
   scroll-behavior: smooth;
   transition: visibility 0.2s, opacity 0.2s;
+  margin: 20px 0;
+  padding: 10px 0;
 }
 .forecast-item {
   box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.692);
@@ -45,14 +47,14 @@
   height: 100vh;
   right: 0;
   top: 0;
-  display: grid;
+  display: none;
   grid-template-rows: minmax(605px, 1fr) 300px;
   grid-auto-rows: 605px 300px;
   align-items: center;
 }
 .nav-bg {
   grid-row: 2/3;
-  background-color: rgb(127, 150, 0);
+  background-color: #00000091;
   display: flex;
   height: 150px;
   flex-wrap: wrap;
