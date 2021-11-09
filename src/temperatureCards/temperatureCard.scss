@@ -4,7 +4,6 @@
 .forecast-wrapper {
   position: relative;
   grid-column: 1 / 4;
-  // border: 2px solid white;
   display: flex;
   align-items: center;
   justify-content: left;
@@ -24,7 +23,8 @@
   border-bottom: 5px solid yellow;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  background: #0000003d;
+  // background: #0000003d;
+  background: #00000070;
 }
 .forecast-item:first-child {
   margin-left: 60px;

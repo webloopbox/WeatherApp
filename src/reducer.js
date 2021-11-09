@@ -1,21 +1,4 @@
 export const reducer = (state, action) => {
-    // if (action.type === 'ADD_ITEM') {
-    //     const newPeople = [...state.people, action.payload];
-    //     return {
-    //         ...state,
-    //         people: newPeople,
-    //         isModalOpen: true,
-    //         modalContent: 'item added',
-    //     };
-    // }
-    // if (action.type === "FIND_CITY") {
-    //     const newState = { ...state, current_city_data: action.payload }
-    //     return newState
-    // // }
-
-
-    // console.log('from reducer');
-    // console.log(action.payload);
 
     if (action.type === "CURRENT_DATA") {
         const [city, temp, humidity, air_pressure, wind_speed, weather_condition, rain, weather_icon] = action.payload

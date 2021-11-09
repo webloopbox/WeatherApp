@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useGlobalContext } from '../context'
+import countryList from './list'
 
 
 const Search = () => {
@@ -14,10 +15,6 @@ const Search = () => {
         const url = `https://api.openweathermap.org/data/2.5/forecast?cnt=10&q=${city}&appid=${process.env.REACT_APP_WEATHER_API_KEY}`
         const getData = async () => {
             if(city) {
-
-                var timer1;
-                var timer2;
-
 
                 try {
 
@@ -102,16 +99,9 @@ const Search = () => {
                             forecast.push({hour,temperature,feel})
                         }
 
-                       
-
                         
-                        
-                        setTimeout(()=>{
-                            setCurrentData([city, temp, humidity, air_pressure, wind_speed, weather_condition, rain, weather_icon])
-                            setForecast(forecast)
-                        }, 300)
-
-                        
+                        setCurrentData([city, temp, humidity, air_pressure, wind_speed, weather_condition, rain, weather_icon])
+                        setForecast(forecast)
 
                         setTimeout(() => {
                             if(is_ready) {
@@ -130,16 +120,31 @@ const Search = () => {
                 }
 
                  // SET IMAGE
-                 const image_response = await fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=${process.env.REACT_APP_IMAGES_API_KEY}`)
-                 const image = await image_response.json()
-                //  console.log(image);
-                 const place_image = image.results[0] && image.results[0].urls.regular;
+                 const image_response = await fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=${process.env.REACT_APP_IMAGES_API_KEY}`);
+                 const image = await image_response.json();
+                 
+                (function() {
+                    if(image.results[0]) {
+                        for(let outer=0; outer<image.results.length; outer++) {
+                            let current_index_tags = image.results[outer].tags
+                            const place_image = image.results[outer] && image.results[outer].urls.regular;
+       
+                            for(let inner=0;inner<current_index_tags.length;inner++) {
+                               
+                               if(countryList.includes(current_index_tags[inner].title)) {
+                                console.log(2);
+                                   setBackground(place_image)
+                                   return 0;
+                               }
+                            }
+                        }
 
-                 if(place_image) {
-                    setBackground(place_image)
-                 } else {
-                    setBackground("https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80")
-                 }
+                       }
+                       setBackground("https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1740&q=80")
+
+                })()
+                
+                 
 
                  
 

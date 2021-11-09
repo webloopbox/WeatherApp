@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
 import { useGlobalContext } from '../context'
-// import Zoom from 'react-reveal/Zoom';
 
 
 const TemperatureCard = () => {
@@ -15,7 +14,7 @@ const TemperatureCard = () => {
             const leftBtn = document.getElementsByClassName("left-btn")[0]
             const rightBtn = document.getElementsByClassName("right-btn")[0]
             const forecastWrapper = document.getElementsByClassName("forecast-wrapper")[0]
-            // console.log(rightBtn);
+            
             leftBtn.addEventListener('click', function() {
                 forecastWrapper.scrollLeft -= 100;
             })
