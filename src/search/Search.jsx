@@ -130,12 +130,17 @@ const Search = () => {
                             const place_image = image.results[outer] && image.results[outer].urls.regular;
        
                             for(let inner=0;inner<current_index_tags.length;inner++) {
-                               
-                               if(countryList.includes(current_index_tags[inner].title)) {
-                                console.log(2);
-                                   setBackground(place_image)
-                                   return 0;
-                               }
+
+                            for(let cl=0; cl<countryList.length; cl++) {
+                                if((countryList[cl].name_pl == current_index_tags[inner].title) || (countryList[cl].name_en == current_index_tags[inner].title) || (countryList.includes(current_index_tags[inner].title))) {
+                                    console.log(2);
+                                    setBackground(place_image)
+                                    return 0;
+                                    }
+                            }
+
+
+
                             }
                         }
 
