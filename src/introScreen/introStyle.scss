@@ -22,7 +22,8 @@
 .intro-screen.invisible,
 .leftbar.invisible,
 .rightbar.invisible,
-.forecast-wrapper.invisible {
+.forecast-wrapper.invisible,
+.attribution.invisible {
   visibility: hidden;
   opacity: 0;
 }

@@ -32,7 +32,7 @@ const TemperatureCard = () => {
     }
 
 
-    return (
+    return <>
         <div className={`forecast-wrapper   ${(!intro_hide_status && is_ready) ? 'invisible' : ''}`}>
         {forecast_data.map((item,index)=> {
             const {hour,temperature,feel} = item
@@ -52,7 +52,8 @@ const TemperatureCard = () => {
             </div>
         </div>
         </div>
-    )
+        <p className={`attribution  ${(!intro_hide_status && is_ready) ? 'invisible' : ''}`}>Photo by <a href="#" id="image-author" target="_blank"></a> on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
+    </>
 
  
 }

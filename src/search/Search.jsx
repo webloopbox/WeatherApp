@@ -7,6 +7,8 @@ const Search = () => {
 
     const [city, setCity] = useState('')
     const [background, setBackground] = useState('')
+    const [imageAuthor, setImageAuthor] = useState('')
+    const [authorLink, setAuthorLink] = useState('')
 
     const {setCurrentData, setForecast, setIntroInvisibility, active_form, is_ready,setError, error_message} = useGlobalContext()
 
@@ -133,7 +135,15 @@ const Search = () => {
 
                             for(let cl=0; cl<countryList.length; cl++) {
                                 if((countryList[cl].name_pl == current_index_tags[inner].title) || (countryList[cl].name_en == current_index_tags[inner].title) || (countryList.includes(current_index_tags[inner].title))) {
-                                    console.log(2);
+                                    
+                                    const image_author = `${image.results[outer].user.first_name} ${image.results[outer].user.last_name}`
+                                    const author_link = image.results[outer].user.links.html
+
+                                    console.log(author_link);
+                                    console.log(image_author);
+                                    
+                                    setImageAuthor(image_author)
+                                    setAuthorLink(author_link)
                                     setBackground(place_image)
                                     return 0;
                                     }
@@ -160,6 +170,11 @@ const Search = () => {
 
     useEffect(() => {
         document.body.style.backgroundImage = `url(${background})`
+        if(imageAuthor&&authorLink) {
+            document.getElementById("image-author").innerHTML = imageAuthor
+            document.getElementById("image-author").href = authorLink
+        }
+       
     },[background])
 
     return <div className='search-wrapper'>
@@ -172,6 +187,7 @@ const Search = () => {
         </form>
         </div>
         {(error_message) ? <h2 className="error-message">{error_message}</h2> : ''}
+        
     </div>
 }
 

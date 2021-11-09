@@ -1,10 +1,9 @@
 #app {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, minmax(min-content, max-content));
   grid-template-rows:
     minmax(255px, max-content)
-    repeat(3, minmax(min-content, max-content));
+    repeat(3, minmax(min-content, max-content)) 30px;
   box-sizing: border-box;
   background: linear-gradient(
     45deg,

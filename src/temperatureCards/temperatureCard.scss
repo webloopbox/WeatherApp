@@ -10,7 +10,7 @@
   overflow-x: scroll;
   scroll-behavior: smooth;
   transition: visibility 0.2s, opacity 0.2s;
-  margin: 20px 0;
+  margin: 20px 0 20px 0;
   padding: 10px 0;
 }
 .forecast-item {
@@ -23,11 +23,10 @@
   border-bottom: 5px solid yellow;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  // background: #0000003d;
   background: #00000070;
 }
 .forecast-item:first-child {
-  margin-left: 60px;
+  margin-left: 40px;
 }
 .forecast-item p {
   font-weight: 400;
@@ -48,13 +47,13 @@
   right: 0;
   top: 0;
   display: none;
-  grid-template-rows: minmax(605px, 1fr) 300px;
+  grid-template-rows: minmax(580px, 1fr) 310px;
   grid-auto-rows: 605px 300px;
   align-items: center;
 }
 .nav-bg {
   grid-row: 2/3;
-  background-color: #00000091;
+  background-color: #000000d4;
   display: flex;
   height: 150px;
   flex-wrap: wrap;
@@ -78,4 +77,18 @@
 .left-btn:hover,
 .right-btn:hover {
   transform: scale(0.9);
+}
+.attribution {
+  position: relative;
+  margin: 0 20px 0 0;
+  grid-row: 5/6;
+  font-weight: 400;
+  z-index: 99;
+  text-align: right;
+  transition: visibility 0.2s, opacity 0.2s;
+}
+.attribution a {
+  text-decoration: underline;
+  color: white;
+  font-weight: 900;
 }
