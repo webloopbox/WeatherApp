@@ -136,11 +136,10 @@ const Search = () => {
                             for(let cl=0; cl<countryList.length; cl++) {
                                 if((countryList[cl].name_pl == current_index_tags[inner].title) || (countryList[cl].name_en == current_index_tags[inner].title) || (countryList.includes(current_index_tags[inner].title))) {
                                     
-                                    const image_author = `${image.results[outer].user.first_name} ${image.results[outer].user.last_name}`
+                                    const last_name = image.results[outer].user.last_name || "";
+                                    
+                                    const image_author = `${image.results[outer].user.first_name} ${last_name}`
                                     const author_link = image.results[outer].user.links.html
-
-                                    console.log(author_link);
-                                    console.log(image_author);
                                     
                                     setImageAuthor(image_author)
                                     setAuthorLink(author_link)
