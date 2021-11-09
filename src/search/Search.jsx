@@ -10,7 +10,7 @@ const Search = () => {
     const [imageAuthor, setImageAuthor] = useState('')
     const [authorLink, setAuthorLink] = useState('')
 
-    const {setCurrentData, setForecast, setIntroInvisibility, active_form, is_ready,setError, error_message} = useGlobalContext()
+    const {setCurrentData, setForecast, setIntroInvisibility, active_form, is_ready,setError, error_message, current_city_data} = useGlobalContext()
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -169,8 +169,8 @@ const Search = () => {
     }
 
     useEffect(() => {
-        document.body.style.backgroundImage = `url(${background})`
-        if(imageAuthor&&authorLink) {
+        if(imageAuthor&&authorLink&&current_city_data.city) {
+            document.body.style.backgroundImage = `url(${background})`
             document.getElementById("image-author").innerHTML = imageAuthor
             document.getElementById("image-author").href = authorLink
         }
