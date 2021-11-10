@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap");
+
 html {
   overflow-x: hidden;
 }
@@ -13,6 +14,7 @@ body {
   color: white;
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
+  transition: height 250ms 600s; /*10min delay*/
 }
 @import "./appStyle.scss";
 @import "./introScreen/introStyle.scss";
