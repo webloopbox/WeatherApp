@@ -6,28 +6,24 @@
 
 ### Demo - Deployed on Netlify
 <https://weather.pawelmarek.com/>
-
 <br>
 
 ## 🚀 Getting Started
-```
+```bash
 git clone https://github.com/webloopbox/portfolio-site.git
 cd WeatherApp
 npm install
 ```
 
-#### To start the application use:
-```bash
-npm start
-```
-
-
-#### Then add Unsplash and OpenWeather access keys in `.env` file:
+#### Add Unsplash and OpenWeather access keys in `.env` file:
 
 * Place Your [Unsplash access key](https://unsplash.com/documentation#authorization) as `REACT_APP_IMAGES_API_KEY`
 * Place Your [OpenWeather access key](https://openweathermap.org/appid) as `REACT_APP_WEATHER_API_KEY`
 
-
+#### To start the application use:
+```bash
+npm start
+```
 
 ## Built with
 * ES6
