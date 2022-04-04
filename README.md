@@ -10,7 +10,7 @@
 
 ## 🚀 Getting Started
 ```bash
-git clone https://github.com/webloopbox/portfolio-site.git
+git clone https://github.com/webloopbox/WeatherApp.git
 cd WeatherApp
 npm install
 ```
