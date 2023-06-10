@@ -1,4 +1,4 @@
-import { useWeatherSearch } from "../hooks/useWeatherSearch";
+import { useWeatherSearch } from "../../hooks/useWeatherSearch";
 
 const Search = () => {
   const { city, setCity, handleSubmit, activeForm, errorMessage } =

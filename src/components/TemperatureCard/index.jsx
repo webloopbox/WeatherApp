@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { useGlobalContext } from "../context";
+import { useEffect } from "react";
+import { useGlobalContext } from "../../useGlobalContext";
 
 const TemperatureCard = () => {
   const { forecastData, introHideStatus, isReady } = useGlobalContext();
@@ -23,7 +23,6 @@ const TemperatureCard = () => {
   if (!forecastData) {
     return <p>brak danych</p>;
   }
-
   return (
     <>
       <div

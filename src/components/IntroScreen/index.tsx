@@ -1,8 +1,7 @@
 import { useEffect } from "react";
+import { useGlobalContext } from "../../useGlobalContext";
 
-import { useGlobalContext } from "../context";
-
-const IntroScreen = ({ children }) => {
+const IntroScreen = ({ children }: { children: JSX.Element[] }) => {
   const {
     currentCityData,
     introHideStatus,

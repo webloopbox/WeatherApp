@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
-import { useGlobalContext } from "../context";
-import countryList from "../helpers/countryList.helper";
+import { useState, useEffect, MouseEventHandler } from "react";
 import { getWeather } from "../api/getWeather";
 import { getCityImage } from "../api/getCityImage";
+import { WeatherCondition } from "../models/weatherCondition.enum";
+import { useGlobalContext } from "../useGlobalContext";
 
 export const useWeatherSearch = () => {
-  const [city, setCity] = useState("");
-  const [background, setBackground] = useState("");
-  const [imageAuthor, setImageAuthor] = useState("");
-  const [authorLink, setAuthorLink] = useState("");
+  const [city, setCity] = useState<string>("");
+  const [background, setBackground] = useState<string>("");
+  const [imageAuthor, setImageAuthor] = useState<string>("");
+  const [authorLink, setAuthorLink] = useState<string>("");
   const {
     setCurrentData,
     setForecast,
@@ -20,7 +20,7 @@ export const useWeatherSearch = () => {
     currentCityData,
   } = useGlobalContext();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit: MouseEventHandler<HTMLButtonElement> = async (e) => {
     e.preventDefault();
 
     try {
@@ -30,7 +30,7 @@ export const useWeatherSearch = () => {
 
       const weatherData = await getWeather(city);
 
-      setError(false);
+      setError("");
 
       // TEMPERATURE
       const fTemp = weatherData.list[0].main.temp;
@@ -52,25 +52,25 @@ export const useWeatherSearch = () => {
       let weatherCondition = weatherData.list[0].weather[0].main;
 
       switch (weatherCondition) {
-        case "Clouds":
+        case WeatherCondition.Clouds:
           weatherCondition = "Pochmurnie";
           break;
-        case "Drizzle":
+        case WeatherCondition.Drizzle:
           weatherCondition = "Mżawka";
           break;
-        case "Thunderstorm":
+        case WeatherCondition.Thunderstorm:
           weatherCondition = "Burza z piorunami";
           break;
-        case "Rain":
+        case WeatherCondition.Rain:
           weatherCondition = "Deszcz";
           break;
-        case "Snow":
+        case WeatherCondition.Snow:
           weatherCondition = "Śnieg";
           break;
-        case "Mist":
+        case WeatherCondition.Mist:
           weatherCondition = "Mgła";
           break;
-        case "Clear":
+        case WeatherCondition.Clear:
           weatherCondition = "Bezchmurnie";
           break;
         default:
@@ -103,7 +103,7 @@ export const useWeatherSearch = () => {
         return { hour: time, temperature, feel };
       });
 
-      setCurrentData([
+      setCurrentData({
         city,
         temp,
         humidity,
@@ -112,7 +112,8 @@ export const useWeatherSearch = () => {
         weatherCondition,
         rain,
         weatherIcon,
-      ]);
+      });
+
       setForecast(forecast);
 
       setTimeout(() => {
@@ -131,17 +132,7 @@ export const useWeatherSearch = () => {
 
       const placeImage = image.results[0] && image.results[0].urls.regular;
 
-      const placeTags = image.results.flatMap((result) =>
-        result.tags.map((tag) => tag.title)
-      );
-      const countryTag = countryList.find(
-        (country) =>
-          placeTags.includes(country.name_pl) ||
-          placeTags.includes(country.name_en) ||
-          countryList.includes(country)
-      );
-
-      if (placeImage && countryTag) {
+      if (placeImage) {
         const lastName = image.results[0].user.last_name || "";
         const imageAuthor = `${image.results[0].user.first_name} ${lastName}`;
         const authorLink = image.results[0].user.links.html;
@@ -158,8 +149,12 @@ export const useWeatherSearch = () => {
   useEffect(() => {
     if (imageAuthor && authorLink && currentCityData.city) {
       document.body.style.backgroundImage = `url(${background})`;
-      document.getElementById("image-author").innerHTML = imageAuthor;
-      document.getElementById("image-author").href = authorLink;
+
+      const imageAuthorElement = document.getElementById("image-author");
+      if (imageAuthorElement instanceof HTMLAnchorElement) {
+        imageAuthorElement.innerHTML = imageAuthor;
+        imageAuthorElement.href = authorLink;
+      }
     }
   }, [background]);
 

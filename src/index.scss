@@ -30,9 +30,9 @@ body {
     rgba(42, 51, 8, 0.808) 80%
   );
 }
-@import "./IntroScreen/introStyle.scss";
-@import "./LeftBar/leftBarStyle.scss";
-@import "./Search/searchStyle.scss";
-@import "./RightBar/rightBarStyle.scss";
-@import "./TemperatureCard/temperatureCard.scss";
+@import "./components/IntroScreen/introStyle.scss";
+@import "./components/LeftBar/leftBarStyle.scss";
+@import "./components/Search/searchStyle.scss";
+@import "./components/RightBar/rightBarStyle.scss";
+@import "./components/TemperatureCard/temperatureCard.scss";
 @import "./media.scss";
