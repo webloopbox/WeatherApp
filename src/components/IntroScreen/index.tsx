@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useGlobalContext } from "../../useGlobalContext";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
 
 const IntroScreen = ({ children }: { children: JSX.Element[] }) => {
   const {

@@ -2,7 +2,7 @@ import humidityIcon from "../../assets/icons8-humidity-100.png";
 import pressureIcon from "../../assets/icons8-pressure-100.png";
 import rainIcon from "../../assets/icons8-rain-100.png";
 import windIcon from "../../assets/icons8-wind-100.png";
-import { useGlobalContext } from "../../useGlobalContext";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
 
 const LeftBar = () => {
   const { currentCityData, introHideStatus, isReady } = useGlobalContext();

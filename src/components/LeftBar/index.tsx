@@ -1,4 +1,4 @@
-import { useGlobalContext } from "../../useGlobalContext";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
 
 const LeftBar = () => {
   const { currentCityData, introHideStatus, isReady } = useGlobalContext();

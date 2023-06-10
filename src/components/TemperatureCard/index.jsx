@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { useGlobalContext } from "../../useGlobalContext";
+import { useGlobalContext } from "../../hooks/useGlobalContext";
 
 const TemperatureCard = () => {
   const { forecastData, introHideStatus, isReady } = useGlobalContext();

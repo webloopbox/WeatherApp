@@ -4,7 +4,7 @@ import RightBar from "./components/RightBar";
 import Search from "./components/Search";
 import TemperatureCard from "./components/TemperatureCard";
 import IntroScreen from "./components/IntroScreen";
-import { GlobalContextProvider } from "./useGlobalContext";
+import { GlobalContextProvider } from "./hooks/useGlobalContext";
 
 const App = () => {
   useEffect(() => {

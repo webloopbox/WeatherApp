@@ -2,7 +2,7 @@ import { useState, useEffect, MouseEventHandler } from "react";
 import { getWeather } from "../api/getWeather";
 import { getCityImage } from "../api/getCityImage";
 import { WeatherCondition } from "../models/weatherCondition.enum";
-import { useGlobalContext } from "../useGlobalContext";
+import { useGlobalContext } from "../hooks/useGlobalContext";
 
 export const useWeatherSearch = () => {
   const [city, setCity] = useState<string>("");
