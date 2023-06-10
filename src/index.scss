@@ -14,12 +14,25 @@ body {
   color: white;
   font-family: "Roboto", sans-serif;
   overflow-x: hidden;
-  transition: height 250ms 600s; /*10min delay*/
+  // transition: height 250ms 600s; /*10min delay*/
 }
-@import "./appStyle.scss";
-@import "./introScreen/introStyle.scss";
-@import "./leftBar/leftBarStyle.scss";
-@import "./search/searchStyle.scss";
-@import "./rightBar/rightBarStyle.scss";
-@import "./temperatureCards/temperatureCard.scss";
+#app {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows:
+    minmax(255px, max-content)
+    repeat(3, minmax(min-content, max-content)) 30px;
+  box-sizing: border-box;
+  background: linear-gradient(
+    45deg,
+    rgba(38, 66, 58, 0.966) 0%,
+    rgba(29, 31, 141, 0.445) 40%,
+    rgba(42, 51, 8, 0.808) 80%
+  );
+}
+@import "./IntroScreen/introStyle.scss";
+@import "./LeftBar/leftBarStyle.scss";
+@import "./Search/searchStyle.scss";
+@import "./RightBar/rightBarStyle.scss";
+@import "./TemperatureCard/temperatureCard.scss";
 @import "./media.scss";
