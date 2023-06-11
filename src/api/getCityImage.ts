@@ -12,9 +12,13 @@ export const getCityImage = async (
       throw new Error("Failed to fetch city image");
     }
 
-    return await response.json();
+    const data = await response.json();
+
+    return {
+      urls: data.results[0].urls,
+      user: data.results[0].user,
+    }
   } catch (error) {
-    console.log(error);
     throw error;
   }
 };

@@ -1,15 +1,4 @@
-interface CityImageData {
-  id: string;
-  slug: string;
-  created_at: string;
-  updated_at: string;
-  promoted_at: string | null;
-  width: number;
-  height: number;
-  color: string;
-  blur_hash: string;
-  description: string | null;
-  alt_description: string;
+export interface CityImageResponse {
   urls: {
     raw: string;
     full: string;
@@ -17,21 +6,6 @@ interface CityImageData {
     small: string;
     thumb: string;
     small_s3: string;
-  };
-  links: {
-    self: string;
-    html: string;
-    download: string;
-    download_location: string;
-  };
-  likes: number;
-  liked_by_user: boolean;
-  current_user_collections: any[];
-  sponsorship: null;
-  topic_submissions: {
-    [topic: string]: {
-      status: string;
-    };
   };
   user: {
     id: string;
@@ -71,14 +45,4 @@ interface CityImageData {
       paypal_email: string | null;
     };
   };
-  tags: {
-    type: string;
-    title: string;
-  }[];
-}
-
-export interface CityImageResponse {
-  total: number;
-  total_pages: number;
-  results: CityImageData[];
 }

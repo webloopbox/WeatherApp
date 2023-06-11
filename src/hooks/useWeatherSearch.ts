@@ -128,14 +128,14 @@ export const useWeatherSearch = () => {
 
     // SET IMAGE
     try {
-      const image = await getCityImage(city);
+      const { user, urls } = await getCityImage(city);
 
-      const placeImage = image.results[0] && image.results[0].urls.regular;
+      const placeImage = urls.regular;
 
       if (placeImage) {
-        const lastName = image.results[0].user.last_name || "";
-        const imageAuthor = `${image.results[0].user.first_name} ${lastName}`;
-        const authorLink = image.results[0].user.links.html;
+        const lastName = user.last_name || "";
+        const imageAuthor = `${user.first_name} ${lastName}`;
+        const authorLink = user.links.html;
 
         setImageAuthor(imageAuthor);
         setAuthorLink(authorLink);
