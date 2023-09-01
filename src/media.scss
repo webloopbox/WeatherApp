@@ -10,7 +10,7 @@
     overflow-y: hidden;
   }
   #app {
-    height: 100vh; // to continue..
+    min-height: 100vh;
     grid-template-columns: 400px 1fr 400px;
     grid-template-rows: 1fr 250px 30px;
     justify-items: stretch;

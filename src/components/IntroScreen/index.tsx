@@ -4,7 +4,6 @@ import { useGlobalContext } from "../../hooks/useGlobalContext";
 const IntroScreen = ({ children }: { children: JSX.Element[] }) => {
   const {
     currentCityData,
-    introHideStatus,
     setIntroInvisibility,
     setForm,
     setLoading,
@@ -37,11 +36,7 @@ const IntroScreen = ({ children }: { children: JSX.Element[] }) => {
 
   return (
     <>
-      <div
-        className={`intro-screen ${introHideStatus ? "hide" : ""} ${
-          !introHideStatus && isReady ? "invisible" : ""
-        } `}
-      >
+      <div className={`intro-screen ${isReady ? "invisible" : ""}`}>
         <div className={`loading ${activeLoading ? "active" : ""}`}>
           <span className="circle circle-1"></span>
           <span className="circle circle-2"></span>

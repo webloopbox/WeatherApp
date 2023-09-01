@@ -8,8 +8,9 @@ const TemperatureCard = () => {
     if (isReady) {
       const leftBtn = document.getElementsByClassName("left-btn")[0];
       const rightBtn = document.getElementsByClassName("right-btn")[0];
-      const forecastWrapper =
-        document.getElementsByClassName("forecast-wrapper")[0];
+      const forecastWrapper = document.getElementsByClassName(
+        "forecast-wrapper-slider"
+      )[0];
 
       leftBtn.addEventListener("click", function () {
         forecastWrapper.scrollLeft -= 100;
@@ -26,21 +27,23 @@ const TemperatureCard = () => {
   return (
     <>
       <div
-        className={`forecast-wrapper   ${
+        className={`forecast-wrapper ${
           !introHideStatus && isReady ? "invisible" : ""
         }`}
       >
-        {forecastData.map((item, index) => {
-          const { hour, temperature, feel } = item;
+        <div className="forecast-wrapper-slider">
+          {forecastData.map((item, index) => {
+            const { hour, temperature, feel } = item;
 
-          return (
-            <article className="forecast-item" key={index}>
-              <p className="hour">{hour}</p>
-              <h1>{temperature}</h1>
-              <p>Odczuwalne {feel}</p>
-            </article>
-          );
-        })}
+            return (
+              <article className="forecast-item" key={index}>
+                <p className="hour">{hour}</p>
+                <h1>{temperature}</h1>
+                <p>Odczuwalne {feel}</p>
+              </article>
+            );
+          })}
+        </div>
         <div className="horizontal-nav">
           <div className="nav-bg">
             <button className="left-btn">
