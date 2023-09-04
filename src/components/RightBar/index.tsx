@@ -4,7 +4,7 @@ import rainIcon from "../../assets/icons8-rain-100.png";
 import windIcon from "../../assets/icons8-wind-100.png";
 import { useGlobalContext } from "../../hooks/useGlobalContext";
 
-const LeftBar = () => {
+const RightBar = () => {
   const { currentCityData, introHideStatus, isReady } = useGlobalContext();
 
   return (
@@ -43,4 +43,4 @@ const LeftBar = () => {
   );
 };
 
-export default LeftBar;
+export default RightBar;
